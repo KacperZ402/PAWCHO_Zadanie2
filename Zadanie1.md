@@ -55,30 +55,3 @@ d) Sprawdzenie warstw i rozmiaru obrazu
 
     docker image inspect pogodynka --format='{{.RootFS.Layers}}'
     docker image inspect pogodynka --format='{{.Size}}'
-
-
-ZADANIE 2
-
-# Projekt: Aplikacja pogodowa w kontenerze
-
-## CI/CD – GitHub Actions
-
-Workflow:
-- Buduje obraz Docker dla `linux/amd64` i `linux/arm64`,
-- Przechowuje dane cache w publicznym repo DockerHub,
-- Skanuje obraz przy użyciu Trivy pod kątem CVE (high/critical),
-- Wysyła obraz do `ghcr.io`, tylko jeśli skan zakończy się pozytywnie.
-
-## Tagowanie
-
-Obrazy są tagowane automatycznie:
-- `sha-<commit>`
-- `branch-<nazwa-gałęzi>`
-
-## Cache
-
-Cache builda przechowywane na DockerHub:
-- `docker.io/<dockerhub_username>/cache:latest`
-- Tryb: `mode=max`
-
-   
