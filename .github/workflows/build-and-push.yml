@@ -60,7 +60,7 @@ jobs:
           cache-to: type=registry,ref=docker.io/${{ secrets.DOCKERHUB_USERNAME }}/cache:latest,mode=max
 
       - name: Scan image from GHCR with Trivy
-        uses: aquasecurity/trivy-action@v0.13.0
+        uses: aquasecurity/trivy-action@master
         with:
           image-ref: ghcr.io/${{ env.REPO_LOWERCASE }}:latest
           format: table
